@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>10Star Renting Game – Survive the Week</title>
+  <title>Budget Survivor – 10Star Finance Game</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
@@ -26,9 +26,9 @@
     .game-container {
       background: rgba(15, 23, 42, 0.98);
       border-radius: 18px;
-      max-width: 1100px;
+      max-width: 1180px;
       width: 100%;
-      padding: 22px 24px 20px;
+      padding: 22px 24px 18px;
       border: 1px solid rgba(148, 163, 184, 0.5);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
     }
@@ -63,7 +63,7 @@
       font-size: 0.9rem;
       color: #cbd5f5;
       margin-top: 4px;
-      max-width: 540px;
+      max-width: 560px;
     }
 
     .meta-block {
@@ -93,11 +93,11 @@
 
     .layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.25fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
       gap: 18px;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 950px) {
       .layout {
         grid-template-columns: 1fr;
       }
@@ -161,12 +161,12 @@
       color: #e5e7eb;
     }
 
-    .stat-value.negative {
-      color: #f97373;
-    }
-
     .stat-value.positive {
       color: #4ade80;
+    }
+
+    .stat-value.negative {
+      color: #fb7185;
     }
 
     .bar-wrapper {
@@ -209,16 +209,18 @@
       font-weight: 600;
     }
 
-    /* Choices */
-    .choices {
-      margin-top: 6px;
-      font-size: 0.86rem;
-      color: #cbd5f5;
+    /* Options */
+    .section-title {
+      margin-top: 10px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
     }
 
     .choice-group {
-      margin-top: 6px;
-      padding-top: 6px;
+      margin-top: 5px;
+      padding-top: 5px;
       border-top: 1px dashed rgba(55, 65, 81, 0.8);
     }
 
@@ -227,14 +229,14 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #9ca3af;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
 
     .option-row {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .option-btn {
@@ -272,7 +274,7 @@
     .tiny-hint {
       font-size: 0.76rem;
       color: #9ca3af;
-      margin-top: 2px;
+      margin-top: 1px;
     }
 
     .run-row {
@@ -281,6 +283,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
     .primary-btn,
@@ -318,12 +321,11 @@
       box-shadow: none;
     }
 
-    /* Right side: summary + log */
+    /* Right panel */
     .right-panel {
       display: grid;
       grid-template-rows: auto minmax(0, 1fr);
       gap: 10px;
-      height: 100%;
     }
 
     .summary-box {
@@ -351,12 +353,12 @@
       text-align: right;
     }
 
-    .summary-value.negative {
-      color: #fb7185;
-    }
-
     .summary-value.positive {
       color: #4ade80;
+    }
+
+    .summary-value.negative {
+      color: #fb7185;
     }
 
     .summary-text {
@@ -372,7 +374,7 @@
       border: 1px solid rgba(55, 65, 81, 0.9);
       font-size: 0.8rem;
       overflow-y: auto;
-      max-height: 260px;
+      max-height: 270px;
     }
 
     .log-box h3 {
@@ -415,31 +417,31 @@
     <div class="header">
       <div class="title-block">
         <h1>
-          10Star Renting Game
-          <span class="pill">Budget Simulator</span>
+          Budget Survivor
+          <span class="pill">10Star Finance</span>
         </h1>
         <p class="subtitle">
-          You’re a student moving out for the first time. Each “week”, choose
-          your rent, transport, phone, food and fun. Can you finish 8 weeks
-          with <strong>no debt</strong> and some savings?
+          Choose your <strong>job</strong>, <strong>car</strong>,
+          <strong>lifestyle</strong> and <strong>savings account</strong>.
+          Play through 8 weeks of random events. Can you finish with savings
+          (and not drown in debt)?
         </p>
       </div>
       <div class="meta-block">
         <div class="meta-label">Scenario</div>
         <div class="meta-value">
-          Student income: $700–$850 / week
-          <span>Whole-class decision-making works best. Pause and predict
-            before you click.</span>
+          Realistic student budget
+          <span>Use as a whole-class game and pause to predict each week.</span>
         </div>
       </div>
     </div>
 
     <div class="layout">
-      <!-- LEFT: Stats and choices -->
+      <!-- LEFT: stats + choices -->
       <div class="card">
         <h2>
           Current Position
-          <span class="badge">Stage 5 Numeracy</span>
+          <span class="badge">Stage 5/6 Money</span>
         </h2>
 
         <div class="stats-grid">
@@ -456,7 +458,7 @@
             <div class="stat-value" id="debtDisplay">$0</div>
           </div>
           <div class="stat-box">
-            <div class="stat-label">This week’s income</div>
+            <div class="stat-label">Income this week</div>
             <div class="stat-value" id="incomeDisplay">$0</div>
           </div>
           <div class="stat-box">
@@ -471,7 +473,7 @@
 
         <div class="bar-wrapper">
           <div class="bar-label">
-            <span>Goal: finish with savings, not debt</span>
+            <span>Soft goal: $1000 saved</span>
             <span id="savingsGoalText">$0 saved so far</span>
           </div>
           <div class="bar">
@@ -480,126 +482,165 @@
         </div>
 
         <p class="week-note">
-          <span>Step 1:</span> Pick your lifestyle for this week. Cheap, comfy
-          or fancy?
+          <span>Step 1:</span> Pick a job, car, lifestyle and savings account.
+          Then run each week and see what happens.
         </p>
 
-        <div class="choices">
-          <!-- Rent -->
-          <div class="choice-group" data-group="rent">
-            <div class="group-title">Rent (per week)</div>
-            <div class="option-row">
-              <button class="option-btn" data-group="rent" data-cost="180">
-                Share house – small room
-                <span>$180</span>
-              </button>
-              <button class="option-btn" data-group="rent" data-cost="260">
-                Small unit
-                <span>$260</span>
-              </button>
-              <button class="option-btn" data-group="rent" data-cost="340">
-                Fancy apartment
-                <span>$340</span>
-              </button>
-            </div>
-            <div class="tiny-hint">
-              Cheaper rent = more money for other things, but maybe longer commute.
-            </div>
-          </div>
+        <!-- JOB + ACCOUNT -->
+        <div class="section-title">Job & Savings Setup (choose once)</div>
 
-          <!-- Transport -->
-          <div class="choice-group" data-group="transport">
-            <div class="group-title">Transport</div>
-            <div class="option-row">
-              <button class="option-btn" data-group="transport" data-cost="35">
-                Walk / bus
-                <span>$35</span>
-              </button>
-              <button class="option-btn" data-group="transport" data-cost="80">
-                Train + ride share
-                <span>$80</span>
-              </button>
-              <button class="option-btn" data-group="transport" data-cost="140">
-                Own car (fuel, rego, insurance)
-                <span>$140</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Phone -->
-          <div class="choice-group" data-group="phone">
-            <div class="group-title">Phone plan</div>
-            <div class="option-row">
-              <button class="option-btn" data-group="phone" data-cost="20">
-                Budget SIM only
-                <span>$20</span>
-              </button>
-              <button class="option-btn" data-group="phone" data-cost="35">
-                Standard data
-                <span>$35</span>
-              </button>
-              <button class="option-btn" data-group="phone" data-cost="55">
-                Unlimited everything
-                <span>$55</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Food -->
-          <div class="choice-group" data-group="food">
-            <div class="group-title">Food</div>
-            <div class="option-row">
-              <button class="option-btn" data-group="food" data-cost="80">
-                Cook at home, meal prep
-                <span>$80</span>
-              </button>
-              <button class="option-btn" data-group="food" data-cost="130">
-                Mix of cooking & takeaway
-                <span>$130</span>
-              </button>
-              <button class="option-btn" data-group="food" data-cost="190">
-                Takeaway and eating out
-                <span>$190</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Fun -->
-          <div class="choice-group" data-group="fun">
-            <div class="group-title">Fun & entertainment</div>
-            <div class="option-row">
-              <button class="option-btn" data-group="fun" data-cost="30">
-                Low cost (free events, streaming)
-                <span>$30</span>
-              </button>
-              <button class="option-btn" data-group="fun" data-cost="70">
-                Moderate (cinema, outings)
-                <span>$70</span>
-              </button>
-              <button class="option-btn" data-group="fun" data-cost="120">
-                Big weekends
-                <span>$120</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="tiny-hint">
-            Teacher idea: Get students to design a “Frugal”, “Balanced” and “YOLO”
-            combination, then test them across multiple runs.
-          </div>
-
-          <div class="run-row">
-            <button class="primary-btn" id="runWeekBtn">
-              Run this week ▶
+        <div class="choice-group" data-group="job">
+          <div class="group-title">Job (realistic)</div>
+          <div class="option-row">
+            <button class="option-btn" data-group="job" data-id="tradie">
+              Apprentice tradie
+              <span>$720 p/w, tool allowance, injury risk</span>
             </button>
-            <button class="ghost-btn" id="resetBtn">Restart game</button>
+            <button class="option-btn" data-group="job" data-id="hospo">
+              Hospitality worker
+              <span>$680 p/w, free meals, roster cuts</span>
+            </button>
+            <button class="option-btn" data-group="job" data-id="warehouse">
+              Warehouse casual
+              <span>$740 p/w, double-pay events, shift cancellations</span>
+            </button>
+            <button class="option-btn" data-group="job" data-id="admin">
+              Admin assistant
+              <span>$780 p/w, stable, fewer perks</span>
+            </button>
           </div>
+        </div>
+
+        <div class="choice-group" data-group="account">
+          <div class="group-title">Savings / investment account</div>
+          <div class="option-row">
+            <button class="option-btn" data-group="account" data-id="basic">
+              Basic savings
+              <span>~0.2% per week</span>
+            </button>
+            <button class="option-btn" data-group="account" data-id="high">
+              High-interest savings
+              <span>~0.6% per week</span>
+            </button>
+            <button class="option-btn" data-group="account" data-id="etf">
+              ETF investment
+              <span>-2% to +4% per week</span>
+            </button>
+            <button class="option-btn" data-group="account" data-id="crypto">
+              Crypto
+              <span>-15% to +20% per week</span>
+            </button>
+          </div>
+          <div class="tiny-hint">
+            Talk about risk: which choice would “Future You” prefer?
+          </div>
+        </div>
+
+        <!-- LIFESTYLE -->
+        <div class="section-title">Lifestyle choices (each week)</div>
+
+        <div class="choice-group" data-group="car">
+          <div class="group-title">Car choice</div>
+          <div class="option-row">
+            <button class="option-btn" data-group="car" data-id="rust">
+              Rust bucket
+              <span>$50 p/w, high repair risk</span>
+            </button>
+            <button class="option-btn" data-group="car" data-id="reliable">
+              Reliable starter
+              <span>$90 p/w, low issues</span>
+            </button>
+            <button class="option-btn" data-group="car" data-id="nice">
+              Nice ride
+              <span>$140 p/w, fines & insurance</span>
+            </button>
+            <button class="option-btn" data-group="car" data-id="electric">
+              Electric car
+              <span>$110 p/w, cheap fuel, pricey insurance</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="choice-group" data-group="rent">
+          <div class="group-title">Rent</div>
+          <div class="option-row">
+            <button class="option-btn" data-group="rent" data-cost="180">
+              Share house
+              <span>$180</span>
+            </button>
+            <button class="option-btn" data-group="rent" data-cost="260">
+              Small unit
+              <span>$260</span>
+            </button>
+            <button class="option-btn" data-group="rent" data-cost="340">
+              Fancy apartment
+              <span>$340</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="choice-group" data-group="food">
+          <div class="group-title">Food</div>
+          <div class="option-row">
+            <button class="option-btn" data-group="food" data-cost="80">
+              Meal prep & cooking
+              <span>$80</span>
+            </button>
+            <button class="option-btn" data-group="food" data-cost="130">
+              Mix cooking / takeaway
+              <span>$130</span>
+            </button>
+            <button class="option-btn" data-group="food" data-cost="190">
+              Eating out often
+              <span>$190</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="choice-group" data-group="fun">
+          <div class="group-title">Fun & entertainment</div>
+          <div class="option-row">
+            <button class="option-btn" data-group="fun" data-cost="30">
+              Low-cost fun
+              <span>$30</span>
+            </button>
+            <button class="option-btn" data-group="fun" data-cost="70">
+              Balanced fun
+              <span>$70</span>
+            </button>
+            <button class="option-btn" data-group="fun" data-cost="120">
+              YOLO weekends
+              <span>$120</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="tiny-hint">
+          Teacher idea: get groups to design a “Frugal”, “Balanced” and “YOLO”
+          lifestyle, then run all three and compare outcomes.
+        </div>
+
+        <div class="run-row">
+          <button class="primary-btn" id="runWeekBtn">Run this week ▶</button>
+          <button class="ghost-btn" id="resetBtn">Restart game</button>
         </div>
       </div>
 
       <!-- RIGHT: summary + log -->
       <div class="right-panel">
         <div class="summary-box">
+          <div class="summary-row">
+            <span class="summary-label">Job chosen:</span>
+            <span class="summary-value" id="jobSummary">–</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Car chosen:</span>
+            <span class="summary-value" id="carSummary">–</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Savings account:</span>
+            <span class="summary-value" id="accountSummary">–</span>
+          </div>
           <div class="summary-row">
             <span class="summary-label">Random life event:</span>
             <span class="summary-value" id="eventText">–</span>
@@ -609,22 +650,24 @@
             <span class="summary-value" id="eventImpact">$0</span>
           </div>
           <div class="summary-row">
-            <span class="summary-label">Result this week:</span>
-            <span class="summary-value" id="resultText">$0</span>
+            <span class="summary-label">Investment change:</span>
+            <span class="summary-value" id="investChange">$0</span>
           </div>
           <div class="summary-row">
-            <span class="summary-label">Total position:</span>
+            <span class="summary-label">Net position:</span>
             <span class="summary-value" id="positionText">$0</span>
           </div>
           <div class="summary-text" id="summaryHint">
-            Choose your lifestyle and click “Run this week” to see what happens.
+            Choose a job, an account and lifestyle options, then press
+            “Run this week”.
           </div>
         </div>
 
         <div class="log-box" id="logBox">
           <h3>Game log</h3>
           <div class="log-entry">
-            Welcome! Try to balance comfort with financial survival.
+            Welcome to Budget Survivor. You’re trying to survive 8 weeks of
+            bills, randomness and your own choices.
           </div>
         </div>
       </div>
@@ -632,13 +675,13 @@
 
     <div class="footer-row">
       <div>
-        Tip: After you finish, ask:
-        <strong>Which choices were “needs” and which were “wants”?</strong>
-        How could you reach a savings goal faster?
+        Tip: After playing, ask:
+        <strong>Which events were completely outside your control?</strong>
+        Which were caused by your choices?
       </div>
       <div>
-        Weeks to play: <strong>8</strong> &nbsp;|&nbsp; Great for:
-        <strong>wages, budgets, fixed & variable costs, random events</strong>.
+        Excellent for:
+        <strong>wages, budgets, fixed vs variable costs, risk & return.</strong>
       </div>
     </div>
   </div>
@@ -648,6 +691,7 @@
     // GAME STATE
     // ---------------------------
     const maxWeeks = 8;
+
     let week;
     let savings;
     let debt;
@@ -655,26 +699,144 @@
     let plannedExpenses;
     let gameOver = false;
 
+    let selectedJob = null;
+    let selectedAccount = null;
+
     const selections = {
+      car: null,
       rent: null,
-      transport: null,
-      phone: null,
       food: null,
       fun: null,
     };
 
-    const events = [
+    // ---------------------------
+    // JOB & ACCOUNT DEFINITIONS
+    // ---------------------------
+    const jobs = {
+      tradie: { name: "Apprentice tradie", baseMin: 700, baseMax: 740 },
+      hospo: { name: "Hospitality worker", baseMin: 650, baseMax: 710 },
+      warehouse: { name: "Warehouse casual", baseMin: 720, baseMax: 760 },
+      admin: { name: "Admin assistant", baseMin: 760, baseMax: 800 },
+    };
+
+    const accounts = {
+      basic: { name: "Basic savings", type: "fixed", rate: 0.002 },
+      high: { name: "High-interest savings", type: "fixed", rate: 0.006 },
+      etf: { name: "ETF investment", type: "variable", min: -0.02, max: 0.04 },
+      crypto: {
+        name: "Crypto",
+        type: "variable",
+        min: -0.15,
+        max: 0.2,
+      },
+    };
+
+    const cars = {
+      rust: { name: "Rust bucket", weeklyCost: 50 },
+      reliable: { name: "Reliable starter", weeklyCost: 90 },
+      nice: { name: "Nice ride", weeklyCost: 140 },
+      electric: { name: "Electric car", weeklyCost: 110 },
+    };
+
+    // ---------------------------
+    // RANDOM EVENTS (~50, category-based)
+    // ---------------------------
+    const generalEvents = [
       { text: "Electricity bill arrives.", amount: -90 },
-      { text: "You get a casual weekend shift.", amount: 120 },
-      { text: "Your laptop charger dies, emergency replacement.", amount: -70 },
-      { text: "Birthday money from a relative.", amount: 150 },
-      { text: "Nothing exciting happens this week.", amount: 0 },
-      { text: "You impulse-buy shoes on sale.", amount: -110 },
-      { text: "You sell an old game console.", amount: 140 },
-      { text: "Cheaper than expected groceries.", amount: 40 },
-      { text: "Phone screen crack… again.", amount: -160 },
-      { text: "You pick up some tutoring and get paid.", amount: 80 },
+      { text: "Cheaper groceries week.", amount: 35 },
+      { text: "You impulse-buy a game.", amount: -60 },
+      { text: "Your friend shouts you dinner.", amount: 30 },
+      { text: "You sell old clothes online.", amount: 60 },
+      { text: "Streaming subscriptions renew.", amount: -40 },
+      { text: "You win a $50 voucher.", amount: 50 },
+      { text: "Nothing dramatic happens this week.", amount: 0 },
+      { text: "You forget to budget and overspend on snacks.", amount: -35 },
+      { text: "Discount sale on essentials.", amount: 25 },
+      { text: "You break a glass in the kitchen.", amount: -15 },
+      { text: "You find $20 in an old jacket.", amount: 20 },
+      { text: "You buy gifts for a family birthday.", amount: -50 },
+      { text: "You cook at home more than usual.", amount: 30 },
+      { text: "Phone bill was lower than expected.", amount: 20 },
+      { text: "You pay for a friend’s Uber.", amount: -25 },
+      { text: "Side hustle selling notes online.", amount: 45 },
+      { text: "Your headphones break.", amount: -40 },
+      { text: "Nothing major this week – boring is good!", amount: 0 },
+      { text: "You save on transport by walking.", amount: 15 },
     ];
+
+    const jobEvents = {
+      tradie: [
+        { text: "Tool allowance from employer.", amount: 70 },
+        { text: "Minor injury, reduced shift.", amount: -80 },
+        { text: "Extra Saturday overtime.", amount: 120 },
+      ],
+      hospo: [
+        { text: "Free staff meal every shift.", amount: 40 },
+        { text: "Roster cut, fewer hours this week.", amount: -90 },
+        { text: "Public holiday shift at higher pay.", amount: 130 },
+      ],
+      warehouse: [
+        { text: "Double-pay Sunday shift.", amount: 140 },
+        { text: "Shift cancelled at short notice.", amount: -100 },
+        { text: "You get a small performance bonus.", amount: 80 },
+      ],
+      admin: [
+        { text: "Very stable week at work.", amount: 0 },
+        { text: "You receive a small bonus voucher.", amount: 60 },
+        { text: "Company shout morning tea, you save on food.", amount: 25 },
+      ],
+    };
+
+    const carEvents = {
+      rust: [
+        { text: "Car battery dies.", amount: -140 },
+        { text: "Cheap tyre patch needed.", amount: -40 },
+        { text: "You manage to fix something yourself.", amount: 25 },
+      ],
+      reliable: [
+        { text: "Regular service, minor cost.", amount: -60 },
+        { text: "No car issues this week.", amount: 0 },
+      ],
+      nice: [
+        { text: "Parking fine near the city.", amount: -120 },
+        { text: "Higher insurance payment this week.", amount: -90 },
+        { text: "Friends pay fuel money for a road trip.", amount: 50 },
+      ],
+      electric: [
+        { text: "Charging costs a bit more than expected.", amount: -25 },
+        { text: "Cheap off-peak charging saves money.", amount: 35 },
+      ],
+    };
+
+    const rentEvents = {
+      180: [
+        { text: "Housemate covers your internet this month.", amount: 40 },
+        { text: "Shared bills are higher than expected.", amount: -40 },
+      ],
+      260: [
+        { text: "Landlord fixes an appliance for free.", amount: 0 },
+        { text: "You need to buy a small furniture item.", amount: -50 },
+      ],
+      340: [
+        { text: "Strata fees for your fancy building.", amount: -120 },
+        { text: "You host friends instead of going out.", amount: 40 },
+      ],
+    };
+
+    const funEvents = {
+      30: [
+        { text: "Free community festival.", amount: 20 },
+        { text: "You borrow games from a friend.", amount: 15 },
+      ],
+      70: [
+        { text: "Cinema tickets on special.", amount: 10 },
+        { text: "You spend slightly more on outings.", amount: -25 },
+      ],
+      120: [
+        { text: "Big night out blows your budget.", amount: -80 },
+        { text: "You shout takeaway for the group.", amount: -60 },
+      ],
+    };
 
     // ---------------------------
     // DOM ELEMENTS
@@ -688,9 +850,13 @@
     const savingsGoalText = document.getElementById("savingsGoalText");
     const savingsBar = document.getElementById("savingsBar");
 
+    const jobSummary = document.getElementById("jobSummary");
+    const carSummary = document.getElementById("carSummary");
+    const accountSummary = document.getElementById("accountSummary");
+
     const eventText = document.getElementById("eventText");
     const eventImpact = document.getElementById("eventImpact");
-    const resultText = document.getElementById("resultText");
+    const investChange = document.getElementById("investChange");
     const positionText = document.getElementById("positionText");
     const summaryHint = document.getElementById("summaryHint");
     const logBox = document.getElementById("logBox");
@@ -700,7 +866,7 @@
     const optionButtons = document.querySelectorAll(".option-btn");
 
     // ---------------------------
-    // INITIALISATION
+    // INITIALISE
     // ---------------------------
     function startGame() {
       week = 1;
@@ -709,39 +875,51 @@
       incomeThisWeek = 0;
       plannedExpenses = 0;
       gameOver = false;
+      selectedJob = null;
+      selectedAccount = null;
 
-      // Clear selections
       Object.keys(selections).forEach((k) => (selections[k] = null));
       optionButtons.forEach((btn) => btn.classList.remove("selected"));
 
       logBox.innerHTML =
-        "<h3>Game log</h3><div class='log-entry'>New game started. Plan your lifestyle for Week 1.</div>";
+        "<h3>Game log</h3><div class='log-entry'>New game started. Choose a job, savings account and lifestyle, then run Week 1.</div>";
 
-      generateWeek();
-      updateUI();
-      runWeekBtn.disabled = false;
+      jobSummary.textContent = "–";
+      carSummary.textContent = "–";
+      accountSummary.textContent = "–";
+      eventText.textContent = "–";
+      eventImpact.textContent = "$0";
+      investChange.textContent = "$0";
+      positionText.textContent = "$0";
       summaryHint.textContent =
-        "Choose your options for this week, then press “Run this week”.";
-    }
+        "Select a job, a savings account and lifestyle options, then click “Run this week”.";
 
-    // Random income and reset weekly values
-    function generateWeek() {
-      incomeThisWeek = randomInt(700, 850);
-      plannedExpenses = calculatePlannedExpenses();
-      updateUI();
+      updateUI({ surplus: 0, eventAmount: 0, investDelta: 0 });
+      runWeekBtn.disabled = false;
     }
 
     // ---------------------------
-    // CHOICES
+    // OPTION HANDLING
     // ---------------------------
     optionButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         if (gameOver) return;
         const group = btn.getAttribute("data-group");
-        const cost = Number(btn.getAttribute("data-cost"));
 
-        // update selection state
-        selections[group] = cost;
+        // job / account use data-id, lifestyle uses cost
+        if (group === "job") {
+          const id = btn.getAttribute("data-id");
+          selectedJob = id;
+        } else if (group === "account") {
+          const id = btn.getAttribute("data-id");
+          selectedAccount = id;
+        } else if (group === "car") {
+          const id = btn.getAttribute("data-id");
+          selections.car = id;
+        } else {
+          const cost = Number(btn.getAttribute("data-cost"));
+          selections[group] = cost;
+        }
 
         // visual selection
         optionButtons.forEach((b) => {
@@ -751,50 +929,97 @@
         });
         btn.classList.add("selected");
 
-        // recompute planned expenses
+        // update summaries
+        if (selectedJob) {
+          jobSummary.textContent = jobs[selectedJob].name;
+        }
+        if (selectedAccount) {
+          accountSummary.textContent = accounts[selectedAccount].name;
+        }
+        if (selections.car) {
+          carSummary.textContent = cars[selections.car].name;
+        }
+
         plannedExpenses = calculatePlannedExpenses();
-        updateUI();
+        incomeThisWeek = generateIncome();
+        updateUI({ surplus: 0, eventAmount: 0, investDelta: 0 });
       });
     });
 
     function calculatePlannedExpenses() {
       let total = 0;
-      Object.values(selections).forEach((cost) => {
-        if (cost !== null) total += Number(cost);
+      // car weekly cost
+      if (selections.car && cars[selections.car]) {
+        total += cars[selections.car].weeklyCost;
+      }
+      // rent, food, fun
+      ["rent", "food", "fun"].forEach((key) => {
+        if (selections[key] !== null) {
+          total += Number(selections[key]);
+        }
       });
       return total;
     }
 
+    function generateIncome() {
+      if (!selectedJob) return 0;
+      const job = jobs[selectedJob];
+      return randomInt(job.baseMin, job.baseMax);
+    }
+
     // ---------------------------
-    // RUN A WEEK
+    // RUN WEEK
     // ---------------------------
     function runWeek() {
       if (gameOver) return;
 
-      // Ensure all categories selected
-      const missing = Object.entries(selections)
-        .filter(([, value]) => value === null)
-        .map(([name]) => name);
-      if (missing.length > 0) {
-        alert("Choose an option for: " + missing.join(", "));
+      // Check required choices
+      const missingBits = [];
+      if (!selectedJob) missingBits.push("job");
+      if (!selectedAccount) missingBits.push("savings account");
+      if (!selections.car) missingBits.push("car");
+      ["rent", "food", "fun"].forEach((g) => {
+        if (selections[g] === null) missingBits.push(g);
+      });
+      if (missingBits.length > 0) {
+        alert("Choose an option for: " + missingBits.join(", "));
         return;
       }
 
       runWeekBtn.disabled = true;
 
       // 1. Base numbers
+      incomeThisWeek = generateIncome();
+      plannedExpenses = calculatePlannedExpenses();
+
       const baseIncome = incomeThisWeek;
       const baseExpenses = plannedExpenses;
 
-      // 2. Random event
+      // 2. Build event pool based on choices
+      let eventPool = [...generalEvents];
+
+      if (selectedJob && jobEvents[selectedJob]) {
+        eventPool = eventPool.concat(jobEvents[selectedJob]);
+      }
+      if (selections.car && carEvents[selections.car]) {
+        eventPool = eventPool.concat(carEvents[selections.car]);
+      }
+      if (selections.rent && rentEvents[selections.rent]) {
+        eventPool = eventPool.concat(rentEvents[selections.rent]);
+      }
+      if (selections.fun && funEvents[selections.fun]) {
+        eventPool = eventPool.concat(funEvents[selections.fun]);
+      }
+
+      // 3. Pick random event
       const event =
-        events[Math.floor(Math.random() * events.length)];
+        eventPool[Math.floor(Math.random() * eventPool.length)];
       const eventAmount = event.amount;
 
-      // 3. Net for the week
+      // 4. Net weekly surplus/deficit BEFORE investment growth
       const surplus = baseIncome - baseExpenses + eventAmount;
 
-      // 4. Apply surplus / deficit
+      // 5. Apply surplus or deficit to savings/debt
       if (surplus >= 0) {
         savings += surplus;
       } else {
@@ -809,87 +1034,60 @@
         }
       }
 
-      // 5. Update displays
+      // 6. Apply investment / interest change on savings
+      const investDelta = applyAccountReturn();
+
+      // 7. Update displays
       const totalPosition = savings - debt;
       updateUI({
         surplus,
         event,
         eventAmount,
+        investDelta,
         totalPosition,
       });
 
-      // 6. Log week
-      logWeek(baseIncome, baseExpenses, event, eventAmount, surplus);
+      // 8. Log week
+      logWeek(baseIncome, baseExpenses, event, eventAmount, surplus, investDelta);
 
-      // 7. Next week or game over
+      // 9. Next week or end
       week++;
       if (week > maxWeeks) {
         finishGame();
       } else {
         setTimeout(() => {
-          generateWeek();
           runWeekBtn.disabled = false;
         }, 250);
       }
     }
 
-    function finishGame() {
-      gameOver = true;
-      runWeekBtn.disabled = true;
-
-      const totalPosition = savings - debt;
-      const entry = document.createElement("div");
-      entry.className = "log-entry";
-
-      if (totalPosition > 0) {
-        entry.innerHTML =
-          "<span class='tag'>Game Over</span>You survived " +
-          maxWeeks +
-          " weeks with <strong>" +
-          formatMoney(savings) +
-          "</strong> in savings and <strong>" +
-          formatMoney(debt) +
-          "</strong> debt. Net position: <strong>" +
-          formatMoney(totalPosition) +
-          "</strong>.";
-        summaryHint.textContent =
-          "Nice work! Could you reach a specific savings goal if you played again with a stricter budget?";
-      } else if (totalPosition === 0) {
-        entry.innerHTML =
-          "<span class='tag'>Game Over</span>You broke even after " +
-          maxWeeks +
-          " weeks. No savings, no debt. What would you change next time?";
-        summaryHint.textContent =
-          "Breaking even is better than debt… but savings would help future you.";
-      } else {
-        entry.innerHTML =
-          "<span class='tag'>Game Over</span>After " +
-          maxWeeks +
-          " weeks, you ended with <strong>" +
-          formatMoney(savings) +
-          "</strong> savings and <strong>" +
-          formatMoney(debt) +
-          "</strong> debt. Net position: <strong>" +
-          formatMoney(totalPosition) +
-          "</strong>.";
-        summaryHint.textContent =
-          "Ouch. Look back at the log. Which choices or events pushed you into debt?";
+    function applyAccountReturn() {
+      if (!selectedAccount || savings <= 0) {
+        return 0;
       }
-
-      logBox.appendChild(entry);
-      logBox.scrollTop = logBox.scrollHeight;
+      const acc = accounts[selectedAccount];
+      let rate = 0;
+      if (acc.type === "fixed") {
+        rate = acc.rate;
+      } else {
+        rate = randomFloat(acc.min, acc.max);
+      }
+      const change = savings * rate;
+      savings += change;
+      return change;
     }
 
     // ---------------------------
-    // UI UPDATE
+    // UI + LOGGING
     // ---------------------------
-    function updateUI(extra = {}) {
+    function updateUI(extra) {
       const {
         surplus = 0,
         event = null,
         eventAmount = 0,
+        investDelta = 0,
         totalPosition = savings - debt,
-      } = extra;
+      } = extra || {};
 
       weekDisplay.textContent =
         Math.min(week, maxWeeks) + " / " + maxWeeks;
@@ -907,7 +1105,6 @@
       savingsGoalText.textContent =
         formatMoney(savings) + " saved so far";
 
-      // savings bar: just show relative progress to a soft goal (e.g. $1000)
       const softGoal = 1000;
       const barPct = Math.max(
         0,
@@ -920,7 +1117,6 @@
       if (totalPosition > 0) positionText.classList.add("positive");
       if (totalPosition < 0) positionText.classList.add("negative");
 
-      // event info
       if (event) {
         eventText.textContent = event.text;
         eventImpact.textContent =
@@ -929,18 +1125,17 @@
         eventImpact.classList.remove("positive", "negative");
         if (eventAmount > 0) eventImpact.classList.add("positive");
         if (eventAmount < 0) eventImpact.classList.add("negative");
-
-        resultText.textContent =
-          (surplus >= 0 ? "+" : "") +
-          formatMoney(surplus, false);
-        resultText.classList.remove("positive", "negative");
-        if (surplus > 0) resultText.classList.add("positive");
-        if (surplus < 0) resultText.classList.add("negative");
       } else {
         eventText.textContent = "–";
         eventImpact.textContent = "$0";
-        resultText.textContent = "$0";
       }
+
+      investChange.textContent =
+        (investDelta >= 0 ? "+" : "") +
+        formatMoney(investDelta, false);
+      investChange.classList.remove("positive", "negative");
+      if (investDelta > 0) investChange.classList.add("positive");
+      if (investDelta < 0) investChange.classList.add("negative");
     }
 
     function logWeek(
@@ -948,13 +1143,14 @@
       expenses,
       event,
       eventAmount,
-      surplus
+      surplus,
+      investDelta
     ) {
       const entry = document.createElement("div");
       entry.className = "log-entry";
       entry.innerHTML =
         "<span class='tag'>Week " +
-        (week) +
+        week +
         "</span>" +
         "Income: " +
         formatMoney(income) +
@@ -965,9 +1161,12 @@
         " (" +
         (eventAmount >= 0 ? "+" : "") +
         formatMoney(eventAmount, false) +
-        "). Result: " +
+        "). Surplus: " +
         (surplus >= 0 ? "+" : "") +
         formatMoney(surplus, false) +
+        ", investment change: " +
+        (investDelta >= 0 ? "+" : "") +
+        formatMoney(investDelta, false) +
         ". Savings: " +
         formatMoney(savings) +
         ", debt: " +
@@ -977,7 +1176,54 @@
       logBox.scrollTop = logBox.scrollHeight;
 
       summaryHint.textContent =
-        "Scroll through the log and identify which choices gave the best results.";
+        "Scroll through the log. Which events were linked to your job, car or lifestyle choices?";
+    }
+
+    function finishGame() {
+      gameOver = true;
+      runWeekBtn.disabled = true;
+
+      const totalPosition = savings - debt;
+      const entry = document.createElement("div");
+      entry.className = "log-entry";
+
+      if (totalPosition > 0) {
+        entry.innerHTML =
+          "<span class='tag'>Game Over</span>You survived " +
+          maxWeeks +
+          " weeks with <strong>" +
+          formatMoney(savings) +
+          "</strong> savings and <strong>" +
+          formatMoney(debt) +
+          "</strong> debt. Net position: <strong>" +
+          formatMoney(totalPosition) +
+          "</strong>.";
+        summaryHint.textContent =
+          "Nice work. Could you reach a specific savings target (e.g. $2000) with a different strategy?";
+      } else if (totalPosition === 0) {
+        entry.innerHTML =
+          "<span class='tag'>Game Over</span>You broke even after " +
+          maxWeeks +
+          " weeks. No savings, no debt.";
+        summaryHint.textContent =
+          "Breaking even is better than debt, but savings give you options.";
+      } else {
+        entry.innerHTML =
+          "<span class='tag'>Game Over</span>After " +
+          maxWeeks +
+          " weeks, you ended with <strong>" +
+          formatMoney(savings) +
+          "</strong> savings and <strong>" +
+          formatMoney(debt) +
+          "</strong> debt. Net position: <strong>" +
+          formatMoney(totalPosition) +
+          "</strong>.";
+        summaryHint.textContent =
+          "Ouch. Look back over the log. Which choices or events pushed you deepest into debt?";
+      }
+
+      logBox.appendChild(entry);
+      logBox.scrollTop = logBox.scrollHeight;
     }
 
     // ---------------------------
@@ -993,13 +1239,17 @@
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    function randomFloat(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
     // ---------------------------
-    // EVENT LISTENERS
+    // EVENTS
     // ---------------------------
     runWeekBtn.addEventListener("click", runWeek);
     resetBtn.addEventListener("click", startGame);
 
-    // Kick off
+    // Start
     startGame();
   </script>
 </body>
